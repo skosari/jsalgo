@@ -1,7 +1,10 @@
+var note = "we are testing this";
+var mag1 = "will it work in this text if we are coding this correctly and then testing this correctly";
+var mag2 = "this excerpt wont work for sure so our output should be false";
+
 function harmlessRansomNote(noteText, magazineText) {
   //assume no punctuation and all letters are lower-case
   //Use a hash-table
-  let noteArr = noteText.split(' ');
   let magazineArr = magazineText.split(' ');
   let magazineObj = {};
 
@@ -9,7 +12,22 @@ function harmlessRansomNote(noteText, magazineText) {
     if (!magazineObj[word]) magazineObj[word] = 0;
     magazineObj[word]++
   })
+
+  let noteArr = noteText.split(' ');
+  let notePossible = true;
+  noteArr.forEach(x => {
+    if (magazineObj[x]) {
+      magazineObj[x]--;
+      if (magazineObj[x] < 0) notePossible = false;
+    }
+    else notePossible = false;
+  })
+  console.log(notePossible);
 }
+
+harmlessRansomNote(note, mag1);
+harmlessRansomNote(note, mag2);
+
 ///////Test Functions//////////
 var sentence = "this is a test that I am doing for this hash example"
 function test(input){
@@ -21,9 +39,56 @@ function test(input){
   })
   console.log(object)
 }
-test(sentence);
+//test(sentence);
 
+var sentence2 ="this is my second sentence in which i take the sentence and make it an object and then count the objects in the sentence in an object";
 
+function test2(x) {
+  let object2 = {}
+  let array2 = sentence2.split(' ');
+  array2.forEach(x => {
+    if (!object2[x]) object2[x] = 0;
+    object2[x]++
+  })
+  console.log(object2)
+}
+//test2(sentence2);
+
+var sentence3 = "ok ok ok ok yes";
+function test3(x) {
+  let object = {};
+  let array = sentence3.split(' ');
+  array.forEach(x => {
+    if (!object[x]) object[x] = 0;
+    object[x]++
+  })
+  console.log(object)
+}
+//test3(sentence3);
+
+let sentence4 = "what are you still doing this for for";
+function test4(word){
+  let array = word.split(' ');
+  let object = {};
+  array.forEach(x => {
+    if (!object[x]) object[x] = 0;
+    object[x]++
+  })
+  console.log(object)
+}
+//test4(sentence4);
+
+var sentence5 = "ok i i i will will get it this time time time";
+function test5(word) {
+  let object = {}
+  let array = word.split(' ');
+  array.forEach(x => {
+    if (!object[x]) object[x] = 0;
+    object[x]++
+  })
+  console.log(object)
+}
+//test5(sentence5);
 
 
 ////////////Big O Notation/////////////
