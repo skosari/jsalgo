@@ -168,3 +168,31 @@ function binarySearch(array, key) {
 }
 //example: find where the word House is in the dictionary
 //Open the dictionary in the middle and you are in the M section. You know that H is before M so you turn a bunch of pages back and find you are in the F section. You know H is after F so you now turn forward a stack of pages until you are in the H section. Essentially instead of starting in the beginning and going through every letter you use logic to find H in three moves instead of 8. The larger the input size the lower the rate of search it will take to get to your answer ex: 4000 elements will take 12 inputs/moves and 6000 elements will take 14 inputs/moves....
+
+
+
+
+var newnote = "ok so this is it";
+var newmag = "in this excerpt we will be testing from start to finish with no aids ok so this is it so this should read true";
+var newmag2 = "this wont work so it should read false";
+
+function myfunc(x,y) {
+  let obj = {}
+  let a = y.split(' ');
+  a.forEach(q => {
+    if (!obj[q]) obj[q] = 0;
+    obj[q]++
+  })
+  let isTrue = true;
+  let b = x.split(' ');
+  b.forEach(s => {
+    if (obj[s]) {
+      obj[s]--;
+      if (obj[s] < 0) isTrue = false;
+    } else isTrue = false;
+  }) 
+  }
+
+
+myfunc(newnote, newmag);
+myfunc(newnote, newmag2);
