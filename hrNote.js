@@ -23,13 +23,14 @@ function harmlessRansomNote(noteText, magazineText) {
     else notePossible = false;
   })
   console.log(notePossible);
+  
 }
+//harmlessRansomNote(note, mag1);
+//harmlessRansomNote(note, mag2);
 
-harmlessRansomNote(note, mag1);
-harmlessRansomNote(note, mag2);
 
 ///////Test Functions//////////
-var sentence = "this is a test that I am doing for this hash example"
+var sentence = "this is a test that I am doing for this hash example";
 function test(input){
   let object = {};
   let array = input.split(' ');
@@ -39,7 +40,7 @@ function test(input){
   })
   console.log(object)
 }
-//test(sentence);
+//test(sentencetester);
 
 var sentence2 ="this is my second sentence in which i take the sentence and make it an object and then count the objects in the sentence in an object";
 
@@ -89,7 +90,21 @@ function test5(word) {
   console.log(object)
 }
 //test5(sentence5);
-
+var compare = "this is what we are comparing";
+var myobj = { this: 1, is: 1, what: 1, we: 1, are: 1, comparing: 1 };
+function trueFalse(x,y) {
+  let arr = x.split(' ');
+  let possible = true;
+  arr.forEach(s => {
+    if (y[s]) {
+      y[s]--;
+      if (y[s] < 0) possible = false;
+    }
+    else possible = false;
+  })
+  console.log(possible);
+}
+trueFalse(compare, myobj);
 
 ////////////Big O Notation/////////////
 //Constant runtime (time it takes to run is horizontal x axis)
