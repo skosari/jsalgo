@@ -5,13 +5,16 @@ var mag2 = "this excerpt wont work for sure so our output should be false";
 function harmlessRansomNote(noteText, magazineText) {
   //assume no punctuation and all letters are lower-case
   //Use a hash-table
-  let magazineArr = magazineText.split(' ');
+  let magazineArr = magazineText.split(' ');//puts our magazine into an array as seperate words
   let magazineObj = {};
 
   magazineArr.forEach(word => {
-    if (!magazineObj[word]) magazineObj[word] = 0;
-    magazineObj[word]++
-  })
+    if (!magazineObj[word]) magazineObj[word] = 0;//if true only this one line runs otherwise we run the line below
+    magazineObj[word]++;//if not! magazineObj[word] meaning if false then we run this line which adds to our object count for that word
+  })//this adds all our magazineArr strings to magazineObj objects and counts the number of times they exist which will output the following notice how some words have a higher count
+  // {
+  //   will: 1, it: 1, work: 1, in: 1, this: 3, text: 1, if: 1, we: 1, are: 1, coding: 1, correctly: 2, and: 1, then: 1, testing: 1
+  // }
 
   let noteArr = noteText.split(' ');
   let notePossible = true;
@@ -19,14 +22,16 @@ function harmlessRansomNote(noteText, magazineText) {
     if (magazineObj[x]) {
       magazineObj[x]--;
       if (magazineObj[x] < 0) notePossible = false;
-    }
+    }//this will subtract the instances of the word in our magaizneObj if it matches a word in our noteArr. If the word does not exist in the magazineObj meaning it is < 0 then we set our notePossible to false. If all the words exist then the else statement below wont run which could also set our notePossible to false
     else notePossible = false;
   })
+  //console.log(magazineObj)//this shows how many times we subtract a word from our array when we compare it against each other
   console.log(notePossible);
   
-}
-//harmlessRansomNote(note, mag1);
-//harmlessRansomNote(note, mag2);
+}// This has a LINEAR time complexity O(n) since the two forEach loops run separate and inside each other. This function is fast. Since each loop runs a different variable we use two different variables to test our time complexity. the first loop is O(n) and the second loop is O(m) n being the note length and m being the magazine length. 
+//linear time complexity = O(n) + O(m) or O(n + m)
+harmlessRansomNote(note, mag1); //true
+harmlessRansomNote(note, mag2); //false
 
 
 ///////Test Functions//////////
@@ -104,7 +109,7 @@ function trueFalse(x,y) {
   })
   console.log(possible);
 }
-trueFalse(compare, myobj);
+//trueFalse(compare, myobj);
 
 ////////////Big O Notation/////////////
 //Constant runtime (time it takes to run is horizontal x axis)
