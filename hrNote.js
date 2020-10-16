@@ -30,8 +30,8 @@ function harmlessRansomNote(noteText, magazineText) {
   
 }// This has a LINEAR time complexity O(n) since the two forEach loops run separate and inside each other. This function is fast. Since each loop runs a different variable we use two different variables to test our time complexity. the first loop is O(n) and the second loop is O(m) n being the note length and m being the magazine length. 
 //linear time complexity = O(n) + O(m) or O(n + m)
-//harmlessRansomNote(note, mag1); //true
-//harmlessRansomNote(note, mag2); //false
+harmlessRansomNote(note, mag1); //true
+harmlessRansomNote(note, mag2); //false
 
 
 ///////Test Functions//////////
@@ -188,11 +188,9 @@ function myfunc(x,y) {
   b.forEach(s => {
     if (obj[s]) {
       obj[s]--;
-      if (obj[s] < 0) isTrue = false; //If we used up all our word in the magazine then we will have 0 words so this is a check but this will run no matter what in this first combined iff statement
+      if (obj[s] < 0) isTrue = false;
     } else isTrue = false;
   }) 
-  console.log(isTrue);
-}
-
+  }
 myfunc(newnote, newmag);
 myfunc(newnote, newmag2);
