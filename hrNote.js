@@ -193,14 +193,6 @@ function myfunc(x,y) {
   }) 
   console.log(isTrue);
 }
-  // b.forEach(s => {
-  //   if (obj[s]) {
-  //     console.log("yes");
-  //     if (obj[s] < 0) console.log("no");
-  //   } else console.log("no2");
-  // })
-  // }
-
 
 myfunc(newnote, newmag);
 myfunc(newnote, newmag2);
