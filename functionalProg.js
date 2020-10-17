@@ -42,7 +42,7 @@ function getMode(arr) {
       modes.push(x);
     }
   }
-  if (modes.length === Object.keys(obj).length) 
+  if (modes.length === Object.keys(obj).length) //In case every object existst at the same frequency as every other object [1,1,2,2,3,3] meaning there is no mode
   modes = [];
   return modes;
 }
