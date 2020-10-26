@@ -1,3 +1,5 @@
+// A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers
+
 // We are building out a linked list object that contains individual nodes tha contain the value of the node as well as which node is before and after
 // a_node = {
 //   value: null,
@@ -122,6 +124,8 @@ myll.addToTail(1000)
 //   tail: Node { value: 1000, next: null, previous: null }
 // }
 
+
+
 LinkedList.prototype.removeHead = function() {
   if (!this.head) return null;//If this.head is emply we return null
   let val = this.head.value;
@@ -134,6 +138,8 @@ LinkedList.prototype.removeHead = function() {
 myll.removeHead();
 //console.log(myll)
 //LinkedList { head: null, tail: null }
+
+
 
 LinkedList.prototype.removeTail = function() {
   if (!this.tail) return null;
@@ -158,3 +164,23 @@ console.log(ll);
 //   next: null,
 //   previous: Node { value: 100, next: [Circular], previous: [Node] }
 // }
+
+
+
+
+
+// Applications of linked list in computer science –
+
+// 1. Implementation of stacks and queues
+// 2. Implementation of graphs : Adjacency list representation of graphs is most popular which is uses linked list to store adjacent vertices.
+// 3. Dynamic memory allocation : We use linked list of free blocks.
+// 4. Maintaining directory of names
+// 5. Performing arithmetic operations on long integers
+// 6. Manipulation of polynomials by storing constants in the node of linked list
+// 7. representing sparse matrices
+
+// Applications of linked list in real world-
+
+// 1. Image viewer – Previous and next images are linked, hence can be accessed by next and previous button.
+// 2. Previous and next page in web browser – We can access previous and next url searched in web browser by pressing back and next button since, they are linked as linked list.
+// 3. Music Player – Songs in music player are linked to previous and next song. you can play songs either from starting or ending of the list.
