@@ -142,16 +142,16 @@ myll.removeHead();
 
 
 LinkedList.prototype.removeTail = function() {
-  if (!this.tail) return null;
-  let val = this.tail.value;
-  this.tail = this.tail.previous;
-  if (this.tail) this.tail.next = null;
-  else this.head = null;
+  if (!this.tail) return null;//If no tail
+  let val = this.tail.value;//save current tail
+  this.tail = this.tail.previous;//current tail = next tail
+  if (this.tail) this.tail.next = null;//if there was a tail and another node set the first tail to null/delete it
+  else this.head = null;//if there wasnt multiple nodes also set the head pointer to null
   return val;
 }
 
-ll.removeTail();
-console.log(ll);
+//ll.removeTail();
+//console.log(ll);
 //RETURNS
 // tail: Node {
 //   value: 100,
@@ -165,8 +165,38 @@ console.log(ll);
 //   previous: Node { value: 100, next: [Circular], previous: [Node] }
 // }
 
+/////////////////SEARCH/////////////////
+//If our search query exist we want to return it. If it does not exist we will return null
+LinkedList.prototype.search = function(searchValue) {
+  let curNode = this.head;
+  while(curNode) {
+    if (curNode.value === searchValue) return curNode.value;
+    curNode = curNode.next;//This will change our curNode from head to tail and = null when it reaches the tail
+  }
+  return null; //Since this is a while loop if our search returns false then we break out of the loop and return null
+}
+//console.log(ll.search(300));//returns 300
+//console.log(ll.search(3000));//returns null
 
 
+/////////IndexOf///////////
+//Find the indexOf the value by assigning our object to an array
+LinkedList.prototype.indexOf = function(indexValue) {
+  let curNode = this.head;
+  let listArr = [];
+  let curIndex = 0;
+  while(curNode){
+    if(curNode.value === indexValue){
+      listArr.push(curIndex);      
+    }
+    curNode = curNode.next;
+    curIndex++;
+  }
+  return listArr;
+}
+ll.addToHead(100)
+console.log(ll)
+console.log(ll.indexOf(100))
 
 
 // Applications of linked list in computer science –

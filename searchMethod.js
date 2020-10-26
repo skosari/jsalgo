@@ -24,11 +24,11 @@ LinkedList.prototype.addToTail = function(value) {
 }
 
 LinkedList.prototype.deleteHead = function() {
-  if (!this.head) return null; //If no head
-  let curVal = this.head.value; //save current head
-  this.head = this.head.next; //current head = next head
-  if (this.head) this.head.prev = null; //if there was a head and another node set the first head to null/delete it
-  else this.tail = null; //if there wasnt multiple nodes also set the tail pointer to null
+  if (!this.head) return null; 
+  let curVal = this.head.value; 
+  this.head = this.head.next; 
+  if (this.head) this.head.prev = null; 
+  else this.tail = null; 
   return curVal;
 }
 
@@ -41,15 +41,13 @@ LinkedList.prototype.deleteTail = function() {
   return curVal;
 }
 
-// let test1 = new LinkedList();
-// test1.addToHead(2)
-// test1.addToHead(1)
-// test1.addToTail(4)
-// test1.addToTail(5)
-// console.log(test1)
+//Reverse search from tail
+LinkedList.prototype.search = function(searchValue) {
+   let curValue = this.tail;
+   while (curValue) {
+    if (curValue.value === searchValue) return curValue.value;
+    curValue = curValue.prev;
+   }
+   return null;
+ }
 
-// let test2 = new LinkedList();
-// test2.addToTail(1);
-// console.log(test2);
-// test2.deleteHead();
-// console.log(test2);
