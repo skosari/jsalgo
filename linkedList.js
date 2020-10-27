@@ -214,3 +214,7 @@ console.log(ll.indexOf(100))
 // 1. Image viewer – Previous and next images are linked, hence can be accessed by next and previous button.
 // 2. Previous and next page in web browser – We can access previous and next url searched in web browser by pressing back and next button since, they are linked as linked list.
 // 3. Music Player – Songs in music player are linked to previous and next song. you can play songs either from starting or ending of the list.
+
+
+// Benefit of Linked list that could come up in an interview
+// 1. A Linked List can be stored in pieces in memory. Think of when you would defrag your hard drive, all the little blocks would get organized by the same color in rows. In memory think of a square block diagram where most of the memory is taken up and you only have a few empty cells scattered around the diagram. A linked list can be stored in these small memory blocks away from each other as they are linked to one another through code.
