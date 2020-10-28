@@ -91,15 +91,32 @@ bsNode.prototype.dFTSelect = function(iteratorFunction, order) {
 //1. Define a hierarchy or level of command like the heirarchy of a company
 //2. 
 bsNode.prototype.bFT = function(iteratorFunction) {
-  var queue = [this];//queue is first in first out - putting this inside the array to start with is like defining the root node in there
-  while (queue.length) { //while queue is not empty
+  var queue = [this];//queue is first in first out - putting this inside the array to start with is like defining the root node in there if you log it you will see your node in an array format which we can shift and pull
+  console.log(this);//Will show the first node + pointers to the next nodes
+  while (queue.length) { //while queue is not empty - shows a 1 if there is a node there
     var treeNode = queue.shift();//take the first node out of our queue and store it in the treeNode variable
-    iteratorFunction(treeNode);
+    iteratorFunction(treeNode);//In this example we log out the treeNodes value
     if (treeNode.low) queue.push(treeNode.low);
     if (treeNode.high) queue.push(treeNode.high)
+    console.log(queue)//Notice how our modified array contains all the nodes from that level
   }
 }
 function logbFT(node) {
   console.log(node.value)
 }
-bst.bFT(logbFT);
+//bst.bFT(logbFT);
+
+//This is a great use for recursion - when moving from a node left to right or low to high its super efficient to just recursively call the left or right function to travers our nodes till we get the value we need
+//Big O Notatin: O(log n)
+bsNode.prototype.getMinVal = function() {
+  if (this.low) return this.low.getMinVal();
+  else return this.value;
+}
+
+bsNode.prototype.getMaxVal = function() {
+  if (this.high) return this.high.getMaxVal();
+  else return this.value;
+}
+
+console.log(bst.getMinVal());
+console.log(bst.getMaxVal());
