@@ -1,12 +1,11 @@
 function isPalindromeRegex(string) {
-  var arr = string.replace(/[^a-zA-Z]|\s+/g, '').toLowerCase().split("");
-  var rev = [...arr].reverse();
+  let arr = string.replace(/[^a-zA-Z]|\s+/g, '').toLowerCase().split("");
+  let rev = [...arr].reverse();
   if (arr.join('') == rev.join('')) {
     console.log(string + " is a Palindrome");
   } else console.log(string + " is NOT a Palindrome");
-
 };
-//isPalindromeRegex("Madam I'm, Adam");
+isPalindromeRegex("Madam I'm, Adam");
 
 function isPalindrome(string) {
   let charArr = string.toLowerCase().split('')
@@ -19,4 +18,4 @@ function isPalindrome(string) {
     console.log(string + " is a Palindrome")
   } else console.log(string + " is NOT a Palindrome");
 }
-isPalindrome("Madam I'm Adam");
+// isPalindrome("Madam I'm Adam");
